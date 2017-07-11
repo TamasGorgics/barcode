@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Error!</title>
+		<meta charset="utf-8" />
+	</head>
+	
+	<body>
+		<h1>Ooooops, something went wrong! :(</h1>
+		<h3 th:text="'Error ' + ${status}" />
+		<a href="/" th:href="@{/}">Back to Home Page</a>
+	</body>
+</html>

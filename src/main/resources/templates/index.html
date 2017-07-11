@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Simple barcode generation</title>
+</head>
+<body>
+	 <h1>Simple barcode generation</h1>
+	 <form action="#" th:action="@{/barcode}" th:object="${barcode}" method="post">
+		<table border="1">
+			<tr>
+				<td><label>Data:</label></td>
+				<td><input type="text" th:field="*{data}" placeholder="Data to encode..." /></td>
+			</tr>
+			<tr>
+				<td><label>Label:</label></td>
+				<td><input type="text" th:field="*{label}" /></td>
+			</tr>
+			<tr>
+				<td><label>Draw text?</label></td>
+				<td><input type="checkbox" th:field="*{drawText}" /></td>
+			</tr>
+			<tr>
+				<td><label>Bar width:</label></td>
+				<td><input type="number" th:field="*{width}" /></td>
+			</tr>
+			<tr>
+				<td><label>Bar height:</label></td>
+				<td><input type="number" th:field="*{height}" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Generate barcode!" /></td>
+			</tr>
+		</table>
+	</form> 
+</body>
+</html>
