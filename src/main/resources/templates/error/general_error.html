@@ -4,12 +4,22 @@
 	
 	<head>
 		<title>Error!</title>
-		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6-1/css/bootstrap.min.css" />
+		<script src="/webjars/bootstrap/4.0.0-alpha.6-1/js/bootstrap.min.js"></script>
+		<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	
 	<body>
-		<h1>Ooooops, something went wrong! :(</h1>
-		<h3 th:text="'Error ' + ${status}" />
-		<a href="/" th:href="@{/}">Back to Home Page</a>
+		<div class="container-fluid text-center">
+			<div class="jumbotron">
+				<h1>Ooooops, something went wrong! :(</h1>
+				<h3 th:text="'Error ' + ${status}"></h3>
+			</div>
+			
+			<a type="button" class="btn" th:href="@{/}">Back to Home Page</a>
+		</div>
+
 	</body>
 </html>

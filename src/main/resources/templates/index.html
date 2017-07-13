@@ -2,36 +2,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Simple barcode generation</title>
+	<title>Simple barcode generator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6-1/css/bootstrap.min.css" />
+	<script src="/webjars/bootstrap/4.0.0-alpha.6-1/js/bootstrap.min.js"></script>
+	<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-	 <h1>Simple barcode generation</h1>
-	 <form action="#" th:action="@{/barcode}" th:object="${barcode}" method="post">
-		<table border="1">
-			<tr>
-				<td><label>Data:</label></td>
-				<td><input type="text" th:field="*{data}" placeholder="Data to encode..." /></td>
-			</tr>
-			<tr>
-				<td><label>Label:</label></td>
-				<td><input type="text" th:field="*{label}" /></td>
-			</tr>
-			<tr>
-				<td><label>Draw text?</label></td>
-				<td><input type="checkbox" th:field="*{drawText}" /></td>
-			</tr>
-			<tr>
-				<td><label>Bar width:</label></td>
-				<td><input type="number" th:field="*{width}" /></td>
-			</tr>
-			<tr>
-				<td><label>Bar height:</label></td>
-				<td><input type="number" th:field="*{height}" /></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Generate barcode!" /></td>
-			</tr>
-		</table>
-	</form> 
+
+<div class="container-fluid">
+	<a th:href="@{/}">
+	 <div class="jumbotron text-center">
+	 	<h1>Simple barcode generator</h1>
+	 </div>
+	</a>
+	 	
+	 <div id="data_alert" class="alert alert-danger text-center"><small>Error: Data field is required to generate barcode!</small></div>
+	 <form id="form" class="form-horizontal" action="#" th:action="@{/barcode}" th:object="${barcode}" method="post">
+		 <div class="form-group">
+		 	<label class="control-label col-sm-6 text-right">Data:</label>
+		 	<input id="data_input" type="text" th:field="*{data}" placeholder="Data to encode..." />
+		 </div>
+		 <div class="form-group">
+		 	<label class="control-label col-sm-6 text-right">Label:</label>
+		 	<input type="text" th:field="*{label}" />
+		 </div>
+		 <div class="form-group">
+		 	<label class="control-label col-sm-6 text-right">Draw text?</label>
+		 	<input type="checkbox" th:field="*{drawText}" />
+		 </div>
+		 <div class="form-group">
+		 	<label class="control-label col-sm-6 text-right">Bar width:</label>
+		 	<input type="number" th:field="*{width}" />
+		 </div>
+		 <div class="form-group">
+		 	<label class="control-label col-sm-6 text-right">Bar height:</label>
+		 	<input type="number" th:field="*{height}" />
+		 </div>
+		 <div class="form-group text-center">
+		 	<input id="submitButton" class="btn btn-primary col-sm-6" type="submit" value="Generate barcode!" />
+		 </div>
+	 </form> 
+</div>
+	
+	<div id="imageContainer" class="container-fluid text-center">
+		<img th:src="${imageSrc}" />
+	</div>
+	
+	<div class="panel panel-default text-center">
+	  <div class="panel-footer"><a class="btn" href="http://tgorgics.github.io">About me</a></div>
+	</div>
+	
 </body>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#data_alert").hide();
+});
+
+$("#data_input").click(function() {
+	$("#data_alert").hide();
+});
+
+$("#submitButton").click(function() {
+	var data = $("#data_input").val();
+	if (data == '') {
+		$("#data_alert").show();
+		return false;
+	} 
+});
+
+</script>
+
 </html>
