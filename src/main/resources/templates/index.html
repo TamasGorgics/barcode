@@ -34,11 +34,11 @@
 	 <form id="form" class="form-horizontal" action="#" th:action="@{/barcode}" th:object="${barcode}" method="post">
 		 <div class="form-group">
 		 	<label class="control-label col-sm-6 text-right">Data:</label>
-		 	<input id="data_input" type="text" th:field="*{data}" placeholder="Data to encode..." />
+		 	<input id="data_input" type="text" th:field="*{data}" placeholder="Data to encode..." style="text-align:center;"/>
 		 </div>
 		 <div class="form-group">
 		 	<label class="control-label col-sm-6 text-right">Label:</label>
-		 	<input type="text" th:field="*{label}" />
+		 	<input type="text" th:field="*{label}" style="text-align:center;"/>
 		 </div>
 		 <div class="form-group">
 		 	<label class="control-label col-sm-6 text-right">Draw text?</label>
@@ -46,11 +46,11 @@
 		 </div>
 		 <div class="form-group">
 		 	<label class="control-label col-sm-6 text-right">Bar width:</label>
-		 	<input type="number" th:field="*{width}" />
+		 	<input type="number" th:field="*{width}" style="text-align:center;"/>
 		 </div>
 		 <div class="form-group">
 		 	<label class="control-label col-sm-6 text-right">Bar height:</label>
-		 	<input type="number" th:field="*{height}" />
+		 	<input type="number" th:field="*{height}" style="text-align:center;"/>
 		 </div>
 		 <div class="form-group">
 		 	<label class="control-label col-sm-6 text-right">Barcode type:</label>
