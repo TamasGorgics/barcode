@@ -20,6 +20,9 @@ public class BarcodeDTO {
     @Getter
     @Setter
     protected int height = 50;
+    @Getter
+    @Setter
+    protected String type;
 
     public String getData() {
         return this.data;
@@ -61,10 +64,18 @@ public class BarcodeDTO {
         this.height = height;
     }
 
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(final String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "BarcodeDTO [data=" + this.data + ", label=" + this.label + ", drawText=" + this.drawText + ", width=" + this.width
-                + ", height=" + this.height + "]";
+                + ", height=" + this.height + ", type=" + this.type + "]";
     }
 
 }

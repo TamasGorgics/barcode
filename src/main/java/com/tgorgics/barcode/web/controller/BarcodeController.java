@@ -1,5 +1,7 @@
 package com.tgorgics.barcode.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,9 @@ public class BarcodeController {
     private String barcodeServletMapping;
 
     @RequestMapping("/")
-    public String index() {
+    public String index(final Model model) {
+        final List<String> barcodeTypes = BarcodeUtil.getBarcodeTypesList();
+        model.addAttribute("barcodeTypes", barcodeTypes);
         return "index";
     }
 
