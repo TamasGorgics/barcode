@@ -20,11 +20,6 @@ public class BarcodeDTO {
     @Getter
     @Setter
     protected int height = 50;
-    @Getter
-    @Setter
-    private int resolution;
-
-    private final boolean headless = false;
 
     public String getData() {
         return this.data;
@@ -66,22 +61,10 @@ public class BarcodeDTO {
         this.height = height;
     }
 
-    public int getResolution() {
-        return this.resolution;
-    }
-
-    public void setResolution(final int resolution) {
-        this.resolution = resolution;
-    }
-
-    public boolean isHeadless() {
-        return this.headless;
-    }
-
     @Override
     public String toString() {
         return "BarcodeDTO [data=" + this.data + ", label=" + this.label + ", drawText=" + this.drawText + ", width=" + this.width
-                + ", height=" + this.height + ", resolution=" + this.resolution + "]";
+                + ", height=" + this.height + "]";
     }
 
 }

@@ -1,7 +1,5 @@
 package com.tgorgics.barcode.web.controller;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +17,16 @@ public class BarcodeController {
     private String barcodeServletMapping;
 
     @RequestMapping("/")
-    public String index(final Model model) {
+    public String index() {
         return "index";
     }
 
     @RequestMapping(value = "/barcode", method = RequestMethod.POST)
-    public String barcode(@ModelAttribute("barcode") final BarcodeDTO barcode, final Model model) throws IOException {
+    public String barcode(@ModelAttribute("barcode") final BarcodeDTO barcode, final Model model) {
         final String barcodeImage = BarcodeUtil.assembleImagePath(this.barcodeServletMapping, barcode);
         model.addAttribute("imageSrc", barcodeImage);
 
-        return "index";
+        return "barcode :: barcodeImage";
     }
 
     @ModelAttribute("barcode")
