@@ -11,7 +11,7 @@ import net.sourceforge.barbecue.BarcodeFactory;
 
 public class BarcodeUtil {
 
-    public static List<String> BARCODE_TYPES;
+    private static List<String> BARCODE_TYPES;
 
     public static String assembleImagePath(final String servletPath, final BarcodeDTO barcode) {
 
