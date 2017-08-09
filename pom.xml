@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>barcode</name>
-	<description>Lightweight Barcode and QR code generator.</description>
+	<description>Lightweight Barcode generator.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
